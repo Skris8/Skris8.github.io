@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!-- Define el idioma del documento como español -->
+<html lang="es">
+
+<head>
+    <!-- Definimos el código en UTF-8 para que los caracteres especiales se muestren correctamente -->
+    <meta charset="UTF-8">
+
+    <!-- Definimos la viewport para que la página se adapte al tamaño del dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título de la página -->
+    <title>El Lofi como Género Musical</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+
+    <!-- Estilos CSS para los elementos -->
+    <style>
+        html 
+        {
+            scroll-behavior: smooth; /* Habilita el desplazamiento suave entre páginas */
+        }
+
+        
+        body 
+        {
+            background-color: rgb(255, 136, 166); /* Color de fondo de la página */
+        }
+
+        p
+        {
+            text-align: justify; /* Justifica el texto de los párrafos */
+        }
+
+
+        .titulo-seccion
+        {
+            transform-origin: left; /* Define el punto de origen para la transformación */
+            transition: transform 0.3s ease, color 0.3s ease; /* Efecto de transición para retornar después del hover */
+        }
+        
+        
+        .titulo-seccion:hover
+        {
+            transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+            transform-origin: left; /* Mantiene el origen de transformación a la izquierda */
+            color: #ff007f; /* Cambia el color del texto al pasar el mouse */
+            transition: transform 0.3s ease, color 0.3s ease; /* Efecto de transición para el hover */
+        }
+
+
+        .img-container img
+        {
+            transition: all 0.1s; /* Efecto de transición para retornar del img:hover */
+        }
+        
+        
+        .img-container img:hover
+        {
+            transition: all 0.1s; /* Efecto de transición al pasar el mouse */
+            border: 8px solid transparent; /* Espacio para el borde */
+            border-image: linear-gradient(45deg, #ff007f, #8edfff) 1; /* Borde de la imágen con degradado */
+            border-radius: 10px; /* Opcional: redondea las esquinas de la imágen */
+            padding: 5px; /* Añade un poco de espacio entre la imagen y el borde */
+        }
+
+
+        .header 
+        {
+            background-color: antiquewhite; /* Color de fondo para las cabeceras */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+        }
+
+
+        .footer 
+        {
+            background-color: #333; /* Color de fondo del pie de página */
+            color: white; /* Color del texto en el pie de página */
+            padding: 10px; /* Espaciado interno */
+            text-align: center; /* Centra el texto */
+            position: relative; /* Posición relativa */
+            bottom: 0; /* Coloca el pie de página en la parte inferior */
+            width: 100%; /* Ancho completo */
+            margin-top: 35px; /* Margen superior del pie de página */
+        }
+
+
+        .navbar-nav
+        {
+            background-color: light; /* Fondo blanco para la navbar */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil en la navbar */
+        }
+
+
+        .nav-list 
+        {
+            padding: 0; /* Espaciado interno */
+            margin: 0; /* Margen */
+        }
+
+
+        .nav-list > li 
+        {
+            display: inline-block; /* Alinea los elementos uno al lado del otro */
+            position: relative; /* Necesario para el dropdown */
+            padding: 10px; /* Espaciado interno */
+        }
+
+
+        .nav-list > li > a 
+        {
+            display: block; /* Asegura que el enlace ocupe todo el espacio del li */
+            text-align: center; /* Centra el texto */
+            padding: 0px 0px; /* Espaciado interno */
+            
+        }
+
+
+        .nav-link.active 
+        {
+            text-decoration: underline; /* Subrayado para el enlace activo */
+        }
+
+
+        .dropdown 
+        {
+            display: none; /* Oculta el menú desplegable por defecto */
+            position: absolute; /* Posiciona el menú desplegable respecto al elemento padre */
+            border-radius: 5px;
+            background-color: whitesmoke; /* Color de fondo del menú desplegable */
+            min-width: 100%; /* Ancho mínimo del menú desplegable */
+            margin-top: 10px; /* Margen superior del menú */
+            z-index: 10000; /* Asegura que el menú desplegable esté por encima de otros elementos */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil en el menú desplegable */
+        }
+
+
+        .dropdown li 
+        {
+            float: none; /* Para que los elementos del menú desplegable estén en columna */
+            list-style: none; /* Elimina los puntos de la lista */
+            padding: 0px; /* Espaciado interno */
+            margin: 0px; /* Margen */
+        }
+
+
+        .dropdown li a 
+        {
+            text-decoration: none; /* Elimina el subrayado */
+            color: grey; /* Color del texto */
+            padding: 0px; /* Espaciado interno */
+            margin: 0px; /* Margen */
+        }
+
+
+        .dropdown li:hover 
+        {
+            text-decoration: underline;
+        }
+
+
+        .nav-list li:hover .dropdown 
+        {
+            display: block; /* Muestra el dropdown al pasar el mouse sobre el elemento padre */
+        }
+
+
+        .carousel-inner img 
+        {
+            width: 100%; /* Ancho al 100% del contenedor */
+            height: 680px; /* Ajusta la altura a lo que desees */
+            object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <!-- Nombre de la marca -->
+        <a class="navbar-brand" href="#">Lofi Music</a>
+        
+
+        <!-- Icono para el menú colapsable -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+
+                <!-- Enlace a otra página -->
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="index.html">Introducción al género</a> <!-- Redirige a otra página -->
+                        <ul class="dropdown">
+                            <li><a href="index.html#seccion2">Historia del Lofi</a></li>
+                            <li><a href="index.html#seccion3">Lo-fi en la vida cotidiana</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Enlace a la sección de características -->
+                    <li><a class="nav-link" href="caracteristicas_Lofi.html">Características</a> <!-- Redirige a otra página -->
+                        <ul class="dropdown">
+                            <li><a href="caracteristicas_Lofi.html#seccion2">Estética</a></li>
+                            <li><a href="caracteristicas_Lofi.html#seccion3">Ritmo</a></li>
+                            <li><a href="caracteristicas_Lofi.html#seccion4">Producción</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Enlace a otra página -->
+                    <li><a class="nav-link" href="datos_Lofi.html">Datos curiosos</a> <!-- Redirige a otra página -->
+                        <ul class="dropdown">
+                            <li><a href="datos_Lofi.html#seccion2">Radio</a></li>
+                            <li><a href="datos_Lofi.html#seccion3">Impacto</a></li>
+                            <li><a href="datos_Lofi.html#seccion4">Comunidad</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Enlace a otra página -->
+                    <li><a class="nav-link active" href="#seccion1">Referencias</a></li> <!-- Sección en la misma página -->
+                </ul>
+            </ul>
+        </div>
+    
+    </nav>
+
+
+    <!-- Carrusel/Slider -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        
+        <!-- Imágenes del carrusel/slider -->
+        <div class="carousel-inner">
+            
+            <div class="carousel-item active">
+                <img src="https://i.ytimg.com/vi/_v2mTa9Vcuo/maxresdefault.jpg" class="d-block w-100" alt="Imagen Lofi 1">
+            </div>
+            
+            
+            <div class="carousel-item">
+            <img src="https://i.ytimg.com/vi/Ug3Nqc8WyKE/maxresdefault.jpg" class="d-block w-100" alt="Gif Lofi 2">
+            </div>
+            
+            
+            <div class="carousel-item">
+            <img src="https://i.ytimg.com/vi/WUnCaHYgmJc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCn7Xi_7c49wUiQiU4ZhIrqheoXaQ" class="d-block w-100" alt="Imagen Lofi 3">
+            </div>
+    
+        </div>
+        
+
+        <!-- Iconos/botones del carrusel/slider -->
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        
+        
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+    <!-- Sección de información -->
+    <div class="container mt-5">
+       
+        <!-- Contenido principal -->
+        <article>
+            <div class="header mt-4">
+                <h1 class="titulo-seccion" id="seccion1">⋆⛧*┈┈┈┈﹤୨ Referencias ୧﹥ ┈┈┈┈*⛧⋆</h1>
+                <a href="https://youtu.be/Ug3Nqc8WyKE?si=0agIzrZlom98ZoYh">AJ+ Español. (2021). ¿Qué es la música lofi? | @ajplusespanol [Vídeo]. YouTube.<br></a>
+                <a href="https://www.youtube.com/watch?v=WUnCaHYgmJc">Jaime Altozano. (2020). Lo-fi Hip Hop: la expresión de la nostalgia millennial [Vídeo]. YouTube.<br></a>
+                <a href="https://youtu.be/_v2mTa9Vcuo?si=Kh2JPMRy7AUYHm2-">Jaime Altozano. (2020). 6 canciones lo-fi que te volarán la cabeza [Vídeo]. YouTube.</a>
+            </div>
+        </article>
+
+        <!-- Formulario de contacto -->
+        <div class="header mt-4" id="contacto">
+            <h2 class="titulo-seccion">Formulario de Contacto𓂃🖊</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nombre">Nombre y Apellido:</label>
+                    <input type="text" class="form-control" id="nombre" required>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea class="form-control" id="mensaje" required></textarea>
+                </div>
+                
+                <!-- Botón para enviar el formulario -->
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Librería de Fragmentos de Javascript -->
+     <!-- 1-. jquery:
+          2-. Popper.js:
+          3-. Bootstrap:
+    -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+
+
+<!-- Sección de footer -->
+<footer class="footer">
+
+    <!-- Copyright -->
+    <p style="text-align: center">&copy; 2024 - Cristian Llovera - Cedula: 30772853</p>
+    <p style="text-align: center">REPÚBLICA BOLIVARIANA DE VENEZUELA 
+        <br>UNIVERSIDAD BICENTENARIA DE ARAGUA 
+        <br>VICERRECTORADO ACADÉMICO
+        <br>DECANATO DE LA FACULTAD DE INGENIERÍA
+        <br>ESCUELA DE INGENIERÍA EN SISTEMAS
+        <br>SAN JOAQUÍN DE TURMERO - ESTADO ARAGUA
+    </p>
+    <p style="text-align: center">Todos los derechos reservados.</p>
+</footer>
+</html>
+
