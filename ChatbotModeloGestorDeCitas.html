@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Chatbot Gestor de Citas Médicas. Por: Cristian Llovera. Para: IIA-UBA -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Gestor de Citas Médicas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff; /* Fondo color pastel */
+        }
+
+        header {
+            background-color: #a3d5d3; /* Color pastel */
+            color: #333;
+            padding: 1rem;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .chat-container {
+            margin-top: 2rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #ffffff; /* Fondo blanco para el contenedor del chat */
+            padding: 1rem;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+        }
+
+        df-messenger {
+            --df-messenger-bot-message: #a3d5d3; /* Mensaje del bot color pastel */
+            --df-messenger-user-message: #f7cac9; /* Mensaje del usuario color pastel */
+            --df-messenger-button-titlebar-color: #a3d5d3; /* Color de la barra de título */
+            --df-messenger-chat-background-color: #ffffff; /* Fondo del chat */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Chatbot Gestor de Citas Médicas</h1>
+    </header>
+    <p style="text-align: center; color: #777;">El chatbot es el icono en la esquina inferior derecha</p>
+    <div class="chat-container">
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+        <df-messenger
+          chat-icon="https:&#x2F;&#x2F;icon-icons.com&#x2F;icons2&#x2F;2298&#x2F;PNG&#x2F;512&#x2F;doctor_medical_mask_avatar_care_hospital_icon_141626.png"
+          intent="WELCOME"
+          chat-title="GestorCitasMédicas"
+          agent-id="3ca0ff21-4d0b-4fbd-a5f9-77b0df938cf0"
+          language-code="es"
+        ></df-messenger>
+    </div>
+
+    <footer>
+        Desarrollado por Cristian Llovera · Unidad Curricular: IIA-UBA
+    </footer>
+
+</body>
+</html>
